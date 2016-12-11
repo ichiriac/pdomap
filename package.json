@@ -25,6 +25,7 @@
   "homepage": "https://github.com/ichiriac/pdoMap#readme",
   "dependencies": {
     "commander": "^2.9.0",
-    "php-reflection": "git+https://github.com/glayzzle/php-reflection.git"
+    "php-reflection": "git+https://github.com/glayzzle/php-reflection.git",
+    "progress": "^1.1.8"
   }
 }
