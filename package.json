@@ -29,6 +29,7 @@
     "mysql": "^2.12.0",
     "php-reflection": "git+https://github.com/glayzzle/php-reflection.git",
     "progress": "^1.1.8",
-    "read": "^1.0.7"
+    "read": "^1.0.7",
+    "underscore.string": "^3.3.4"
   }
 }

@@ -55,29 +55,40 @@ generator.prototype.connect = function(host, port, user, password, database) {
 generator.prototype.generate = function(destination, namespace, sync) {
   var self = this;
   if (!destination) destination = this.workspace.directory;
-  this.log('step', 'Scan data');
-  this.workspace.scan().then(function() {
-    self.log('step', 'Generating');
-    var classes = [];
-    self.workspace.getByType('class').forEach(function(c) {
-      var model = c.doc.getAnnotation('model');
-      if (model) {
-        classes.push(c);
+  return new Promise(function(done, reject) {
+    self.log('step', 'Scan files');
+    self.workspace.scan().then(function() {
+      self.log('step', 'Reading classes');
+      var classes = [];
+      self.workspace.getByType('class').forEach(function(c) {
+        var model = c.doc.getAnnotation('model');
+        if (model) {
+          classes.push(c);
+        }
+      });
+      // exports
+      var models = {};
+      self.progress = 0;
+      classes.forEach(function(c, index) {
+        var progress = Math.round((index + 1) / classes.length * 100);
+        if (progress !== self.progress) {
+          self.log('progress', progress);
+          self.progress = progress;
+        }
+        // read meta
+        var m = new model(c);
+        models[m.name] = m;
+      });
+
+      // writing files
+      self.log('step', 'Exporting the model');
+
+      if (sync) {
+        self.log('step', 'Synchronize the database');
       }
+
+      done();
     });
-    // exports
-    self.progress = 0;
-    classes.forEach(function(c, index) {
-      var progress = Math.round((index + 1) / classes.length * 100);
-      if (progress !== self.progress) {
-        self.log('progress', progress);
-        self.progress = progress;
-      }
-      // output
-    });
-    // finish
-    self.log('step', 'Done');
-    process.exit(0);
   });
 };
 

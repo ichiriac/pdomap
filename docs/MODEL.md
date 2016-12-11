@@ -46,7 +46,7 @@ a `s` char to it's plural form (underscore lowered case)
 
 > Note : If you declare only one primary key finishing by `_id` the engine will by default consider it as a auto-incremented integer
 
-- strategy (offset 3) : Defines the column incremental strategy (auto, hash(column, [algorithm]), rand)
+- strategy (offset 3) : Defines the column incremental strategy (auto, hash(column, [algorithm]), rand, manuel)
 
 > Note : if the strategy is not defined, if the type is a number, it will choose the auto increment stategy, otherwyse the rand stategy
 
@@ -84,7 +84,7 @@ a `s` char to it's plural form (underscore lowered case)
    * @primary(
    *  name => 'foo_key',
    *  type => @type('text', 32),
-   *  strategy => @rand('url', 'md5')
+   *  strategy => @hash('url', 'md5')
    * )
    */
   class Foo {
@@ -98,4 +98,5 @@ a `s` char to it's plural form (underscore lowered case)
 
 ## Composite primary keys
 
-You can also declare a composed primary key with an array of column names.
+You can also declare a composed primary key with an array of column names, but this
+feature is yet to come

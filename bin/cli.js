@@ -64,8 +64,16 @@ function startProcess() {
   main.connect(program.host, program.port, program.user, program.pwd, program.database).then(function() {
     main.generate(
       program.args.length === 2 ? program.args[1] : null,
-      program.namespace
-    );
+      program.namespace,
+      true
+    ).then(function() {
+      // finish
+      main.log('step', 'Done');
+      process.exit(0);
+    }, function(e) {
+      console.error(e);
+      process.exit(1);
+    })
   }, function(e) {
     console.error(e);
     process.exit(1);
