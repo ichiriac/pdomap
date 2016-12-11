@@ -52,7 +52,7 @@ In order to run grunt you need a `gruntfile.js` at the root of your project. Tak
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    pdoMap: {
+    pdomap: {
       options: {
         // THE LOCAL CONNECTION (http://php.net/manual/fr/pdo.construct.php)
         dsn: 'mysql:host=127.0.0.1,dbname=tests',
@@ -89,11 +89,11 @@ module.exports = function(grunt) {
 
   // Load the plugins
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-pdoMap');
+  grunt.loadNpmTasks('grunt-contrib-pdomap');
 
   // Default task(s).
   grunt.registerTask('default', ['watch']);
-  grunt.registerTask('build', ['pdoMap:build']);
+  grunt.registerTask('build', ['pdomap:build']);
 
 };
 ```
