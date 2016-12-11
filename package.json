@@ -24,8 +24,11 @@
   },
   "homepage": "https://github.com/ichiriac/pdoMap#readme",
   "dependencies": {
+    "colors": "^1.1.2",
     "commander": "^2.9.0",
+    "mysql": "^2.12.0",
     "php-reflection": "git+https://github.com/glayzzle/php-reflection.git",
-    "progress": "^1.1.8"
+    "progress": "^1.1.8",
+    "read": "^1.0.7"
   }
 }
