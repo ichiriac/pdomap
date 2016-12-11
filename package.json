@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/ichiriac/pdoMap/issues"
   },
-  "homepage": "https://github.com/ichiriac/pdoMap#readme"
+  "homepage": "https://github.com/ichiriac/pdoMap#readme",
+  "dependencies": {
+    "php-reflection": "git+https://github.com/glayzzle/php-reflection.git"
+  }
 }
