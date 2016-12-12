@@ -16,6 +16,29 @@ automatically retrive configuration from it's childs.
 
 ## Syntax
 
+
+```php
+<?php
+
+  /**
+   * @model
+   */
+  class Foo {
+
+  }
+
+  /**
+   * @model
+   */
+  class Bar extends Foo {
+
+  }
+```
+
+In this basic example, we have a `foo` model, and a `bar` model. The `Bar` class extends the `Foo` class, so pdoMap will deduce that the `foo` model is extending the `bar` model, by automatically using a `type` column and put the model name inside.
+
+But you can also define it explicitely :
+
 ```php
 <?php
 
@@ -27,7 +50,8 @@ automatically retrive configuration from it's childs.
   }
 
   /**
-   * @extends(type => 'bar')
+   * @model
+   * @extends(type => 'it-s-a-bar')
    */
   class Bar extends Foo {
 
@@ -35,7 +59,7 @@ automatically retrive configuration from it's childs.
 ```
 
 Be carefull, this keyword can lead to incoherent configuration. In that case the
-system will simply warn you and stop generation.
+system will simply warn you and stop generation for the specified model.
 
 ### Incoherent column name
 

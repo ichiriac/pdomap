@@ -71,11 +71,11 @@ function startProcess() {
       main.log('step', 'Done');
       process.exit(0);
     }, function(e) {
-      console.error(e);
+      console.error(e.stack);
       process.exit(1);
     })
   }, function(e) {
-    console.error(e);
+    console.error(e.stack);
     process.exit(1);
   })
 }

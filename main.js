@@ -69,16 +69,26 @@ generator.prototype.generate = function(destination, namespace, sync) {
       // exports
       var models = {};
       self.progress = 0;
-      classes.forEach(function(c, index) {
-        var progress = Math.round((index + 1) / classes.length * 100);
-        if (progress !== self.progress) {
-          self.log('progress', progress);
-          self.progress = progress;
+      try {
+        
+        classes.forEach(function(c, index) {
+          var progress = Math.round((index + 1) / classes.length * 100);
+          if (progress !== self.progress) {
+            self.log('progress', progress);
+            self.progress = progress;
+          }
+          // read meta
+          var m = new model(c);
+          models[m.name] = m;
+        });
+
+        for(var m in models) {
+          models[m].checkExtends(models);
         }
-        // read meta
-        var m = new model(c);
-        models[m.name] = m;
-      });
+      } catch(e) {
+        return reject(e);
+      }
+
 
       // writing files
       self.log('step', 'Exporting the model');

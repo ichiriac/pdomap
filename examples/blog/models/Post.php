@@ -4,6 +4,7 @@ namespace model;
 
   /**
    * @model
+   * @search('search', ['title', 'body'])
    */
   class Post {
     /**
@@ -13,6 +14,7 @@ namespace model;
 
     /**
      * @column(type => 'text', size => 64)
+     * @unique
      */
     protected $slug;
 
