@@ -70,7 +70,6 @@ generator.prototype.generate = function(destination, namespace, sync) {
       var models = {};
       self.progress = 0;
       try {
-        
         classes.forEach(function(c, index) {
           var progress = Math.round((index + 1) / classes.length * 100);
           if (progress !== self.progress) {
@@ -92,6 +91,14 @@ generator.prototype.generate = function(destination, namespace, sync) {
 
       // writing files
       self.log('step', 'Exporting the model');
+      self.progress = 0;
+      try {
+        for(var m in models) {
+          models[m].checkExtends(models);
+        }
+      } catch(e) {
+        return reject(e);
+      }
 
       if (sync) {
         self.log('step', 'Synchronize the database');
