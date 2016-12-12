@@ -3,6 +3,8 @@
 A simple, powerfull, fast and lightweigt ORM written in PHP, and using the PDO
 library as a DBAL layer.
 
+[![preview](https://raw.githubusercontent.com/ichiriac/pdoMap/master/docs/demo.gif)]
+
 I write this library because actually if I want a framework independ ORM
 library that have a lightweight core framework. Size matters because I
 would like to distribute my code under a small phar file (or php
