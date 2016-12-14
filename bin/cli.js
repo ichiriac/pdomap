@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 var program     = require('commander');
 var pkg         = require('../package.json');
 
@@ -11,7 +13,7 @@ program
   .option('-u, --user <user>', 'Sets the user name', 'root')
   .option('-p, --pwd  <pwd>', 'Sets the user password', false)
   .option('-n, --namespace  <name>', 'Sets classes namespace', '/')
-  .option('-c, --core  <class>', 'Sets core class name', '/')
+  .option('-c, --core  <class>', 'Sets core class name', 'pdoMap')
   .parse(process.argv);
 
 // check arguments

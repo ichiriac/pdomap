@@ -92,19 +92,28 @@ generator.prototype.generate = function(destination, namespace, sync) {
       // writing files
       self.log('step', 'Exporting the model');
       self.progress = 0;
-      try {
-        for(var m in models) {
-          models[m].checkExtends(models);
+      var index = 0;
+      var wait = [];
+      for(var m in models) {
+        var out = new output(models[m]);
+        //console.log(destination + '/' + out.model.name + '.php');
+        wait.push(
+            out.render(destination + '/' + out.model.name + '.php', namespace).then(function() {
+            var progress = Math.round(++index / wait.length * 100);
+            if (progress !== self.progress) {
+              self.log('progress', progress);
+              self.progress = progress;
+            }
+          }, reject)
+        );
+      }
+
+      Promise.all(wait).then(function() {
+        if (sync) {
+          self.log('step', 'Synchronize the database');
         }
-      } catch(e) {
-        return reject(e);
-      }
-
-      if (sync) {
-        self.log('step', 'Synchronize the database');
-      }
-
-      done();
+        done();
+      })
     });
   });
 };

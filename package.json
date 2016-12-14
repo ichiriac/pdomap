@@ -28,6 +28,7 @@
     "commander": "^2.9.0",
     "mysql": "^2.12.0",
     "php-reflection": "git+https://github.com/glayzzle/php-reflection.git",
+    "php-unparser": "git+https://github.com/glayzzle/php-unparser.git",
     "progress": "^1.1.8",
     "read": "^1.0.7",
     "underscore.string": "^3.3.4"
