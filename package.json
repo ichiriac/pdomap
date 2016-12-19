@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --stack-size=5000 node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- test/*"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,9 @@
     "underscore.string": "^3.3.4"
   },
   "devDependencies": {
-    "istanbul": "^0.4.5"
+    "coveralls": "^2.11.15",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "should": "^11.1.2"
   }
 }

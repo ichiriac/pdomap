@@ -1,5 +1,8 @@
 # pdoMap
 
+[![Build Status](https://travis-ci.org/ichiriac/pdoMap.svg?branch=master)](https://travis-ci.org/ichiriac/pdoMap)
+[![Coverage Status](https://coveralls.io/repos/github/ichiriac/pdoMap/badge.svg?branch=master)](https://coveralls.io/github/ichiriac/pdoMap?branch=master)
+
 A simple, powerfull, fast and lightweigt ORM written in PHP, and using the PDO
 library as a DBAL layer.
 
