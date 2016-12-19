@@ -29,8 +29,13 @@
     "mysql": "^2.12.0",
     "php-reflection": "git+https://github.com/glayzzle/php-reflection.git",
     "php-unparser": "git+https://github.com/glayzzle/php-unparser.git",
+    "php-parser": "git+https://github.com/glayzzle/php-parser.git",
+    "php-writer": "git+https://github.com/glayzzle/php-writer.git",
     "progress": "^1.1.8",
     "read": "^1.0.7",
     "underscore.string": "^3.3.4"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.5"
   }
 }
