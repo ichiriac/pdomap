@@ -61,11 +61,13 @@ generator.prototype.generate = function(destination, namespace, sync) {
       self.log('step', 'Reading classes');
       var classes = [];
       self.workspace.getByType('class').forEach(function(c) {
+        if (!c.doc) return;
         var model = c.doc.getAnnotation('model');
-        if (model) {
+        if (model !== null) {
           classes.push(c);
         }
       });
+
       // exports
       var models = {};
       self.progress = 0;
@@ -80,7 +82,6 @@ generator.prototype.generate = function(destination, namespace, sync) {
           var m = new model(c);
           models[m.name] = m;
         });
-
         for(var m in models) {
           models[m].checkExtends(models);
         }

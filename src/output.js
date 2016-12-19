@@ -33,6 +33,8 @@ output.prototype.render = function(filename, namespace) {
   var self = this;
   return new Promise(function(done, reject) {
     self.getBody().then(function(ast) {
+      
+      console.log(ast);
       // @todo : change AST
       fs.writeFile(filename, '<?php\n' + unparser(ast), function(err) {
         if (err) {
