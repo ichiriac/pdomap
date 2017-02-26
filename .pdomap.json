@@ -1,0 +1,7 @@
+{
+  "user": "dev",
+  "password": "",
+  "namespace": "blog\\mapping",
+  "path": "examples/blog/",
+  "output": "examples/blog/mapping/"
+}
